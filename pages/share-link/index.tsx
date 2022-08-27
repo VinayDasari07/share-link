@@ -1,6 +1,7 @@
 import { Box } from "@mui/material"
 import { Fragment } from "react"
-import ShareBtn from "../../components/share-btn.component";
+import ShareBtn from "../../src/components/share-btn.component";
+import { share } from "../../content";
 
 const ShareLink = () => {
     return (
@@ -13,7 +14,7 @@ const ShareLink = () => {
                     height: 600,
                 }}
             >
-                <ShareBtn /> 
+                <ShareBtn {...share}/> 
             </Box>  
         </Fragment>
     )

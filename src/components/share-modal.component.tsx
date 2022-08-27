@@ -1,21 +1,22 @@
-import { Box, Divider, useTheme } from "@mui/material"
+import { Box, Divider, Stack, useTheme } from "@mui/material"
 import ShareFooter from "./share-footer.component"
 import ShareHeader from "./share-header.component"
+import { Modal1 } from "./types/share.type"
 
-const ShareModal = () => {
+const ShareModal = (props: Modal1) => {
     const theme = useTheme()
     return (
-        <Box sx={{
+        <Stack sx={{
             // position: "relative",
             width: theme.spacing(64),
             height: theme.spacing(32.75),
             opacity: 1,
             boxShadow: 3
         }}>
-            <ShareHeader />
+            <ShareHeader {...props?.header}/>
             <Divider />
-            <ShareFooter />
-        </Box> 
+            <ShareFooter {...props?.footer}/>
+        </Stack> 
     )
 }
 

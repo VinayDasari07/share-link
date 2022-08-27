@@ -1,0 +1,53 @@
+import { Box, useTheme, Typography} from "@mui/material"
+import { AntSwitch } from "../../styles/components/switches"
+import { Header } from "./types/share.type"
+import Image from 'next/image'
+
+  
+const ShareHeader = (props: Header) => {
+    const theme = useTheme()
+    const label = { inputProps: { 'aria-label': 'Switch demo' } };
+
+    return (
+        <Box sx={{
+            height: theme.spacing(10),
+            display: "flex",
+            justifyContent: "space-between",
+            padding: 2,
+        }}>
+        <Box sx={{
+            display: "flex",
+            justifyContent: "space-between",
+            alignItems: "center", 
+            marginRight: theme.spacing(2)
+        }}>
+            <Image src={props?.logo} alt="Vercel Logo" width={32} height={32} />
+        </Box>
+        <Box sx={{
+            marginRight: "auto"
+        }}>
+            <Box>
+                <Typography variant="body1">{props?.title}</Typography>
+            </Box>
+            <Box>
+                <Typography 
+                    sx={{color: "#6B7280"}} 
+                    variant="body2"
+                >
+                    {props?.subtitle}
+                </Typography>    
+            </Box>
+        </Box>
+        <Box sx={{
+            display: "flex",
+            justifyContent: "space-between",
+            alignItems: "center", 
+        }}>
+            <AntSwitch {...label} />
+        </Box>
+            
+        </Box>
+    )
+}
+
+export default ShareHeader
