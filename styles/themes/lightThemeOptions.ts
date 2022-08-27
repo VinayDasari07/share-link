@@ -1,17 +1,15 @@
 import { createTheme } from '@mui/material/styles'
 
-
-
 const lightTheme = createTheme({
   palette: {
     primary: {
       main: '#111827',
-      darker: '#053e85',
+      darker: '#053e85'
     },
     neutral: {
       main: '#64748B',
-      contrastText: '#fff',
-    },
+      contrastText: '#fff'
+    }
   },
   typography: {
     button: {
@@ -22,26 +20,25 @@ const lightTheme = createTheme({
 
 export default lightTheme
 
-
 declare module '@mui/material/styles' {
   interface Theme {
     status: {
-      danger: React.CSSProperties['color'];
-    };
+      danger: React.CSSProperties['color']
+    }
   }
 
   interface Palette {
-    neutral: Palette['primary'];
+    neutral: Palette['primary']
   }
   interface PaletteOptions {
-    neutral: PaletteOptions['primary'];
+    neutral: PaletteOptions['primary']
   }
 
   interface PaletteColor {
-    darker?: string;
+    darker?: string
   }
   interface SimplePaletteColorOptions {
-    darker?: string;
+    darker?: string
   }
   // interface ThemeOptions {
   //   status: {

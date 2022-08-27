@@ -5,11 +5,13 @@
     },
     "extends": [
         "plugin:react/recommended",
-        "standard-with-typescript"
+        "standard-with-typescript",
+        "next"
     ],
     "overrides": [
     ],
     "parserOptions": {
+        "project": "./share-link/tsconfig.json",
         "ecmaVersion": "latest",
         "sourceType": "module"
     },
