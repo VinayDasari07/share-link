@@ -13,6 +13,7 @@ const ShareHeader = (props: Header): React.ReactElement => {
           height: theme.spacing(10),
           display: 'flex',
           alignItems: 'flex-start',
+          transition: 'background 20ms ease-in 0s',
           '&:hover': {
             background: 'rgba(55,53,47,0.08)',
             cursor: 'pointer'

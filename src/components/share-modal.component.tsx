@@ -1,4 +1,5 @@
 import { Box, Divider, Stack, useTheme } from '@mui/material'
+import BookmarkedEntity from './bookmared-enitites.component'
 import SearchInput from './search-input.component'
 import ShareFooter from './share-footer.component'
 import ShareHeader from './share-header.component'
@@ -19,7 +20,14 @@ const ShareModal = (props: Modal1): React.ReactElement => {
                 }}>
                 <ShareHeader {...props?.header}/>
                 <Divider />
-                <SearchInput {...props?.inputField}/>
+                <Box sx={{
+                  p: 2
+                }}>
+                    <Box>
+                      <SearchInput {...props?.inputField}/>
+                      <BookmarkedEntity />
+                    </Box>
+                </Box>
             </Box>
             <Divider />
             <ShareFooter {...props?.footer}/>

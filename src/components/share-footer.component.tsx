@@ -26,10 +26,12 @@ const ShareFooter = (props: Footer): React.ReactElement => {
                   display: 'flex',
                   flexDirection: 'row',
                   alignItems: 'center',
+                  transition: 'background 20ms ease-in 0s',
                   '&:hover': {
                     background: 'rgba(55,53,47,0.08)',
                     cursor: 'pointer'
                   },
+                  borderRadius: 1,
                   padding: 1
                 }}
                 onClick={() => window.open(props?.ctaUrl)}
@@ -50,10 +52,12 @@ const ShareFooter = (props: Footer): React.ReactElement => {
                   display: 'flex',
                   flexDirection: 'row',
                   alignItems: 'center',
+                  transition: 'background 20ms ease-in 0s',
                   '&:hover': {
                     background: 'rgba(55,53,47,0.08)',
                     cursor: 'pointer'
                   },
+                  borderRadius: 1,
                   padding: 1
                 }}>
                     <Box sx={{

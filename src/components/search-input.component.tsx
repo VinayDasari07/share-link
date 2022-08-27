@@ -6,9 +6,7 @@ import { InputField } from './types/share.type'
 
 export default function SearchInput (props: InputField): React.ReactElement {
   return (
-    <Box sx={{
-      p: 2
-    }}>
+    <Box sx={{ p: '0 0 16px' }}>
         <Paper
             component="form"
             sx={{ display: 'flex', alignItems: 'center', width: '100%' }}
@@ -19,7 +17,12 @@ export default function SearchInput (props: InputField): React.ReactElement {
                 inputProps={{ 'aria-label': `Search ${props?.placeholder}` }}
             />
             <Button sx={{
-              background: '#F9FAFB'
+              background: '#F9FAFB',
+              transition: 'background 20ms ease-in 0s',
+              '&:hover': {
+                background: 'rgba(55,53,47,0.08)',
+                cursor: 'pointer'
+              }
             }}>
                 <Typography>{props?.invite}</Typography>
             </Button>
