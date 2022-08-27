@@ -1,69 +1,22 @@
-import { Box, styled, Typography, useTheme } from '@mui/material'
-import Image from 'next/image'
+import { Box, styled } from '@mui/material'
+import React from 'react'
+import { ProfileInfo } from './common/profile.component'
+import { SelectOptions as AccessTypeMenu } from './common/select-options.component'
+import { Bookmarked } from './types/share.type'
 
-const BookmarkedEntity = (): React.ReactElement => {
-  const theme = useTheme()
-
-  const ProfileContent = styled(Box)`
+const BookmarkCont = styled(Box)`
     display: flex;
     flex-direction: row;
+    justify-content: space-between;
     height : 5.5
-  `
-
-  const ProfileLogoCont = styled(Box)`
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-  `
-  const ProfileLogo = styled(Box)`
-        width: ${theme.spacing(5)};
-        height: ${theme.spacing(5)};
-        margin-right: ${theme.spacing(1)};
-        border-radius: ${theme.spacing(2.5)};
-        overflow: hidden;
-  `
-  const ProfileInfo = styled(Box)`
-    
-  `
-  const ProfileName = styled(Box)`
-    
-  `
-
-  const ProfileDesc = styled(Box)`
-    
 `
 
+const BookmarkedEntity = (props: Bookmarked): React.ReactElement => {
   return (
-        <Box sx={{
-          height: theme.spacing(5.5)
-        }}>
-            <ProfileContent>
-                    <ProfileLogoCont>
-                    <ProfileLogo>
-                        <Image
-                            src="/oSlashLogo.svg"
-                            alt="OSlash Company logo"
-                            width={40}
-                            height={40}
-                        />
-                    </ProfileLogo>
-                    </ProfileLogoCont>
-
-                    <ProfileInfo>
-                        <ProfileName>
-                            <Typography variant="body1">Everyone at OSlash</Typography>
-                        </ProfileName>
-                        <ProfileDesc>
-                        <Typography
-                            sx={{ color: '#6B7280' }}
-                            variant="body2"
-                        >
-                            25 workspace members
-                        </Typography>
-                        </ProfileDesc>
-                    </ProfileInfo>
-            </ProfileContent>
-        </Box>
+        <BookmarkCont>
+            <ProfileInfo {...props?.profileInfo}/>
+            <AccessTypeMenu options={props?.options}/>
+        </BookmarkCont>
 
   )
 }

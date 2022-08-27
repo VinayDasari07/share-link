@@ -2,7 +2,7 @@ export const share = {
   shareBtn: 'Share',
   modal1: {
     header: {
-      logo: '/globeIcon.svg',
+      logoUrl: '/globeIcon.svg',
       title: 'Share to web',
       subtitle: 'Publish and share link with anyone'
     },
@@ -11,12 +11,31 @@ export const share = {
       invite: 'Invite'
     },
     footer: {
-      logo1: '/question.svg',
-      text1: 'Learn about sharing',
-      ctaUrl: 'https://www.google.com/',
-      logo2: '/copyLink.svg',
-      text2: 'Copy link'
+      about: {
+        logoUrl: '/question.svg',
+        ctaText: 'learn about sharing',
+        ctaUrl: 'https://www.google.com/'
+      },
+      copyLink: {
+        logoUrl: '/copyLink.svg',
+        ctaText: 'Copy link'
+      }
     }
   }
 
+}
+
+export const bookmarked = {
+  profileInfo: {
+    variant: 'medium',
+    logoUrl: '/oSlashLogo.svg',
+    name: 'Everyone at OSlash',
+    description: '25 workspace members'
+  },
+  options: [
+    'Full access',
+    'Can edit',
+    'Can view',
+    'No access'
+  ]
 }

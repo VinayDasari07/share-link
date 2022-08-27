@@ -1,6 +1,7 @@
 import { Typography, Box, useTheme } from '@mui/material'
 import { Footer } from './types/share.type'
 import Image from 'next/image'
+import About from './common/about.component'
 
 const ShareFooter = (props: Footer): React.ReactElement => {
   const theme = useTheme()
@@ -22,32 +23,7 @@ const ShareFooter = (props: Footer): React.ReactElement => {
               alignItems: 'center',
               padding: 1
             }}>
-                <Box sx={{
-                  display: 'flex',
-                  flexDirection: 'row',
-                  alignItems: 'center',
-                  transition: 'background 20ms ease-in 0s',
-                  '&:hover': {
-                    background: 'rgba(55,53,47,0.08)',
-                    cursor: 'pointer'
-                  },
-                  borderRadius: 1,
-                  padding: 1
-                }}
-                onClick={() => window.open(props?.ctaUrl)}
-                >
-                    <Box sx={{
-                      marginRight: theme.spacing(0.75)
-                    }}>
-                        <Image src={props?.logo1} alt="question mark" width={12} height={12} />
-                    </Box>
-                    <Typography
-                        variant="body2"
-                        sx={{ color: '#6B7280' }}
-                    >
-                        {props?.text1}
-                    </Typography>
-                </Box>
+                <About {...props?.about}/>
                 <Box sx={{
                   display: 'flex',
                   flexDirection: 'row',
@@ -63,13 +39,13 @@ const ShareFooter = (props: Footer): React.ReactElement => {
                     <Box sx={{
                       marginRight: theme.spacing(0.75)
                     }}>
-                        <Image src={props?.logo2} alt="copy link" width={12} height={12} />
+                        <Image src={props?.copyLink?.logoUrl} alt="copy link" width={12} height={12} />
                     </Box>
                     <Typography
                         variant="body2"
                         sx={{ color: '#111827', fontWeight: 500 }}
                     >
-                        {props?.text2}
+                        {props?.copyLink?.ctaText}
                     </Typography>
                 </Box>
             </Box>

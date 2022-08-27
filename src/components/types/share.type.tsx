@@ -1,6 +1,6 @@
 
 export interface Header {
-  logo: string
+  logoUrl: string
   title: string
   subtitle: string
 }
@@ -8,16 +8,35 @@ export interface InputField {
   placeholder: string
   invite: string
 }
-export interface Footer {
-  logo1: string
-  text1: string
+export interface About {
+  logoUrl: string
+  ctaText: string
   ctaUrl: string
-  logo2: string
-  text2: string
+}
+
+export interface CopyLink {
+  logoUrl: string
+  ctaText: string
+}
+export interface Footer {
+  about: About
+  copyLink: CopyLink
 }
 
 export interface Modal1 {
   header: Header
   inputField: InputField
   footer: Footer
+}
+export type ProfileInfoVariant = 'small' | 'medium'
+export interface ProfileInfo {
+  variant: ProfileInfoVariant
+  logoUrl: string
+  name: string
+  description: string
+}
+
+export interface Bookmarked {
+  profileInfo: ProfileInfo
+  options: string[]
 }

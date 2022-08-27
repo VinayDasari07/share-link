@@ -34,7 +34,7 @@ const ShareHeader = (props: Header): React.ReactElement => {
                   alignItems: 'center',
                   marginRight: theme.spacing(2)
                 }}>
-                    <Image src={props?.logo} alt="Globe Logo" width={32} height={32} />
+                    <Image src={props?.logoUrl} alt="globe Logo" width={32} height={32} />
                 </Box>
                 <Box sx={{
                   marginRight: 'auto'
