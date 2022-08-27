@@ -8,7 +8,7 @@ export const share = {
         },
         inputField: {
             placeholder: "People, emails, groups",
-            invite: "invite"
+            invite: "Invite"
         },
         footer: {
             logo1: "/question.svg",
