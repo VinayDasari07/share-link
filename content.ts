@@ -10,14 +10,11 @@ export const share = {
             placeholder: "People, emails, groups",
             invite: "invite"
         },
-        // bookmarks: {
-        //     title: "Everyone at OSlash",
-        //     subtitle: "25 workspace members",
-        // },
         footer: {
-            logo1: "./question.svg",
-            text1: "learn about sharing",
-            logo2: "./copyLink.svg",
+            logo1: "/question.svg",
+            text1: "Learn about sharing",
+            ctaUrl: "https://www.google.com/",
+            logo2: "/copyLink.svg",
             text2: "Copy link"        
         }
     }

@@ -10,42 +10,55 @@ const ShareHeader = (props: Header) => {
 
     return (
         <Box sx={{
+            width: "100%",
             height: theme.spacing(10),
             display: "flex",
-            justifyContent: "space-between",
-            padding: 2,
+            alignItems: "flex-start",
+            "&:hover": {
+                background: "rgba(55,53,47,0.08)",
+                cursor: "pointer"
+            },
         }}>
-        <Box sx={{
-            display: "flex",
-            justifyContent: "space-between",
-            alignItems: "center", 
-            marginRight: theme.spacing(2)
-        }}>
-            <Image src={props?.logo} alt="Vercel Logo" width={32} height={32} />
-        </Box>
-        <Box sx={{
-            marginRight: "auto"
-        }}>
-            <Box>
-                <Typography variant="body1">{props?.title}</Typography>
+            <Box sx={{
+                width: "100%",
+                display: "flex",
+                flexDirection: "row",
+                justifyContent: "space-between",
+                alignItems: "center",
+                padding: 2,
+
+            }}>
+                <Box sx={{
+                    display: "flex",
+                    justifyContent: "space-between",
+                    alignItems: "center", 
+                    marginRight: theme.spacing(2)
+                }}>
+                    <Image src={props?.logo} alt="Globe Logo" width={32} height={32} />
+                </Box>
+                <Box sx={{
+                    marginRight: "auto"
+                }}>
+                    <Box>
+                        <Typography variant="body1">{props?.title}</Typography>
+                    </Box>
+                    <Box>
+                        <Typography 
+                            sx={{color: "#6B7280"}}
+                            variant="body2"
+                        >
+                            {props?.subtitle}
+                        </Typography>    
+                    </Box>
+                </Box>
+                <Box sx={{
+                    display: "flex",
+                    justifyContent: "space-between",
+                    alignItems: "center", 
+                }}>
+                    <AntSwitch {...label} />
+                </Box>    
             </Box>
-            <Box>
-                <Typography 
-                    sx={{color: "#6B7280"}} 
-                    variant="body2"
-                >
-                    {props?.subtitle}
-                </Typography>    
-            </Box>
-        </Box>
-        <Box sx={{
-            display: "flex",
-            justifyContent: "space-between",
-            alignItems: "center", 
-        }}>
-            <AntSwitch {...label} />
-        </Box>
-            
         </Box>
     )
 }

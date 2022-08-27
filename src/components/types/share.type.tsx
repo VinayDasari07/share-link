@@ -11,6 +11,7 @@ export type InputField = {
 export type Footer = {
     logo1: string
     text1: string
+    ctaUrl: string
     logo2: string
     text2: string
 }
