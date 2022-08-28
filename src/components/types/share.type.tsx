@@ -5,7 +5,12 @@ export interface Header {
   title: string
   subtitle: string
 }
+
 export interface InputField {
+  placeholder: string
+  onChange: () => void
+}
+export interface SearchInput {
   placeholder: string
   invite: string
 }

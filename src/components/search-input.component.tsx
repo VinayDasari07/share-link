@@ -1,22 +1,23 @@
 import * as React from 'react'
 import Paper from '@mui/material/Paper'
-import InputBase from '@mui/material/InputBase'
 import { Box, Button } from '@mui/material'
-import { InputField } from './types/share.type'
+import { SearchInput as SearchInputType } from './types/share.type'
 import { Typography } from './common/typography.component'
+import InputField from './common/input-field.component'
 
-export default function SearchInput (props: InputField): React.ReactElement {
+export default function SearchInput (props: SearchInputType): React.ReactElement {
+  const handleChange = (): void => {
+    console.log('testing------')
+  }
   return (
     <Box sx={{ p: '0 0 16px' }}>
         <Paper
             component="form"
             sx={{ display: 'flex', alignItems: 'center', width: '100%' }}
         >
-            <InputBase
-                sx={{ ml: 1, flex: 1 }}
-                placeholder={props?.placeholder}
-                onChange={(event: React.ChangeEvent<HTMLTextAreaElement | HTMLInputElement>) => console.log('testing---', event.target.value)}
-                inputProps={{ 'aria-label': `Search ${props?.placeholder}` }}
+            <InputField
+              placeholder={props?.placeholder}
+              onChange={handleChange}
             />
             <Button sx={{
               background: '#F9FAFB',
