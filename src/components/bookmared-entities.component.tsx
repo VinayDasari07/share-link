@@ -15,7 +15,10 @@ const BookmarkedEntity = (props: Bookmarked): React.ReactElement => {
   return (
         <BookmarkCont>
             <ProfileInfo {...props?.profileInfo}/>
-            <AccessTypeMenu textVariant={props?.dropdown?.textVariant} options={props?.dropdown?.options}/>
+            <AccessTypeMenu
+              textVariant={props?.dropdown?.textVariant}
+              options={props?.dropdown?.options}
+            />
         </BookmarkCont>
 
   )

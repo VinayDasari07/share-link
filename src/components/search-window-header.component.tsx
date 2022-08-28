@@ -28,7 +28,9 @@ export default function SearchWindowHeader (props: SearchWindowHeaderType): Reac
               placeholder={props?.inputField?.placeholder}
               onChange={handleChange}
             />
-            <SelectOptions height={30} options={props?.dropdown?.options}/>
+            <SelectOptions
+              size={props?.dropdown?.size}
+              options={props?.dropdown?.options}/>
             <Button sx={{
               ml: 1.5,
               background: '#FFFFFF',

@@ -11,7 +11,6 @@ const ShareFooter = (props: Footer): React.ReactElement => {
             onClick={(e) => e.preventDefault}
             sx={{
               width: '100%',
-              height: 48,
               display: 'flex',
               alignItems: 'flex-start'
             }}
@@ -24,7 +23,9 @@ const ShareFooter = (props: Footer): React.ReactElement => {
               alignItems: 'center',
               padding: 1
             }}>
-                <About {...props?.about}/>
+                <Box>
+                  <About {...props?.about}/>
+                </Box>
                 <Box sx={{
                   display: 'flex',
                   flexDirection: 'row',

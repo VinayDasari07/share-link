@@ -36,10 +36,10 @@ export interface Modal1 {
 }
 export type ProfileInfoVariant = 'small' | 'medium'
 export interface ProfileInfo {
-  variant: ProfileInfoVariant
+  variant?: ProfileInfoVariant
   logoUrl: string
   name: string
-  description: string
+  description?: string
 }
 
 export interface Bookmarked {
@@ -54,6 +54,7 @@ export interface SearchWindowHeader {
   inputField: InputField
   dropdown: {
     options: string[]
+    size: 'medium' | 'small'
   }
   button: string
 }
@@ -63,4 +64,17 @@ export interface SearchWindow {
   footer: {
     about: About
   }
+}
+
+export interface SearchProfile {
+  name: string
+  logoUrl: string
+}
+
+export interface Entities {
+  person?: SearchProfile[]
+  group?: SearchProfile[]
+}
+export interface SearchResults {
+  entity: Entities
 }

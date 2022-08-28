@@ -55,7 +55,8 @@ export const searchWindowHeader = {
       'Can edit',
       'Can view',
       'No access'
-    ]
+    ],
+    size: 'small'
   },
   button: 'Invite'
 }
@@ -78,65 +79,65 @@ export const searchResults = {
     person: [
       {
         name: 'Wade Cooper',
-        logoUrl: 'https://unsplash.com/s/photos/profile-picture'
+        logoUrl: '/Avatar.png'
       },
       {
-        name: 'Wade Cooper',
-        logoUrl: 'https://unsplash.com/s/photos/profile-picture'
+        name: 'Arlene Mccoy',
+        logoUrl: '/Avatar.png'
       },
       {
-        name: 'Wade Cooper',
-        logoUrl: 'https://unsplash.com/s/photos/profile-picture'
+        name: 'Tom cook',
+        logoUrl: '/Avatar.png'
       },
       {
-        name: 'Wade Cooper',
-        logoUrl: 'https://unsplash.com/s/photos/profile-picture'
+        name: 'John E. Bowers',
+        logoUrl: '/Avatar.png'
       },
       {
-        name: 'Wade Cooper',
-        logoUrl: 'https://unsplash.com/s/photos/profile-picture'
+        name: 'Glenn L. Harjo',
+        logoUrl: '/Avatar.png'
       },
       {
-        name: 'Wade Cooper',
-        logoUrl: 'https://unsplash.com/s/photos/profile-picture'
+        name: 'Jennifer C. Beaty',
+        logoUrl: '/Avatar.png'
       },
       {
-        name: 'Wade Cooper',
-        logoUrl: 'https://unsplash.com/s/photos/profile-picture'
+        name: 'Toni B. Lacoste',
+        logoUrl: '/Avatar.png'
       },
       {
-        name: 'Wade Cooper',
-        logoUrl: 'https://unsplash.com/s/photos/profile-picture'
+        name: 'Vernon K. Ward',
+        logoUrl: '/Avatar.png'
       },
       {
-        name: 'Wade Cooper',
-        logoUrl: 'https://unsplash.com/s/photos/profile-picture'
+        name: 'Michael B. Self',
+        logoUrl: '/Avatar.png'
       },
       {
-        name: 'Wade Cooper',
-        logoUrl: 'https://unsplash.com/s/photos/profile-picture'
+        name: 'Patrick S. Shreve',
+        logoUrl: '/Avatar.png'
       }
     ],
     group: [
       {
         name: 'Product',
-        logoUrl: 'https://unsplash.com/s/photos/profile-picture'
+        logoUrl: '/Avatar.png'
       },
       {
         name: 'Engineering',
-        logoUrl: 'https://unsplash.com/s/photos/profile-picture'
+        logoUrl: '/Avatar.png'
       },
       {
         name: 'Human Resource',
-        logoUrl: 'https://unsplash.com/s/photos/profile-picture'
+        logoUrl: '/Avatar.png'
       },
       {
         name: 'Infrastructure',
-        logoUrl: 'https://unsplash.com/s/photos/profile-picture'
+        logoUrl: '/Avatar.png'
       },
       {
         name: 'Supply Chain',
-        logoUrl: 'https://unsplash.com/s/photos/profile-picture'
+        logoUrl: '/Avatar.png'
       }
 
     ]

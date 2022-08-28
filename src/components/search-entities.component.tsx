@@ -1,5 +1,7 @@
 import { Box, Divider, Stack } from '@mui/material'
+import { searchResults } from '../../content'
 import About from './common/about.component'
+import SearchResults from './search-results.component'
 import SearchWindowHeader from './search-window-header.component'
 import { SearchWindow } from './types/share.type'
 
@@ -9,14 +11,19 @@ const SearchEntities = (props: SearchWindow): React.ReactElement => {
         <Box>
            <Stack
                 sx={{
-                  alignItems: 'center',
                   width: 512,
-                  height: 200,
                   opacity: 1,
                   boxShadow: 3
                 }}
             >
               <SearchWindowHeader {...props?.header}/>
+              <Divider />
+              <Box sx={{
+                height: 272,
+                overflow: 'auto'
+              }}>
+                <SearchResults {...searchResults}/>
+              </Box>
               <Divider />
               <Box sx={{
                 width: '100%',

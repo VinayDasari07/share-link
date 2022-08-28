@@ -7,6 +7,7 @@ const About = (props: PropType): React.ReactElement => {
   const theme = useTheme()
   return (
     <Box sx={{
+      width: '100%',
       display: 'flex',
       flexDirection: 'row',
       alignItems: 'center',

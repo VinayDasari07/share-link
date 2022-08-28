@@ -8,14 +8,18 @@ import { TypographyVariant } from '@mui/material'
 
 interface Props {
   options: string[]
-  height?: number
+  size?: 'small' | 'medium'
   textVariant?: TypographyVariant
   style?: TypographyProps
 }
 
-export const SelectOptions = (props: Props): React.ReactElement => {
-  const [accessType, setAccessType] = React.useState(props?.options[0])
-
+export const SelectOptions = ({
+  options = [],
+  size = 'medium',
+  textVariant,
+  style
+}: Props): React.ReactElement => {
+  const [accessType, setAccessType] = React.useState(options[0])
   const handleChange = (event: SelectChangeEvent): void => {
     setAccessType(event.target.value)
   }
@@ -31,28 +35,24 @@ export const SelectOptions = (props: Props): React.ReactElement => {
     }}>
       <FormControl>
         <Select
+            size={size}
             sx={{
               fontSize: '12px',
               color: ' #6B7280',
-              '& .MuiOutlinedInput-root': {
-                height: props?.height
-              },
               '& .MuiOutlinedInput-notchedOutline': {
                 border: '0px'
-              },
-              '& .MuiOutlinedInput-input': {
               }
             }}
           value={accessType}
           label="Age"
           onChange={handleChange}
-          inputProps={{ 'aria-label': 'Access types' }}
+          inputProps={{ height: '40px', 'aria-label': 'Access types' }}
         >
-          {props?.options?.map((option: string) => {
+          {options?.map((option: string) => {
             return (
                 <MenuItem key={option} value={option}>
                   <Typography
-                    variant={props?.textVariant}
+                    variant={textVariant}
                   >
                     {option}
                   </Typography>
