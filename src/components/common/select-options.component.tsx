@@ -8,6 +8,7 @@ import { TypographyVariant } from '@mui/material'
 
 interface Props {
   options: string[]
+  height?: number
   textVariant?: TypographyVariant
   style?: TypographyProps
 }
@@ -20,18 +21,26 @@ export const SelectOptions = (props: Props): React.ReactElement => {
   }
 
   return (
-    <Box>
+    <Box sx={{
+      transition: 'background 20ms ease-in 0s',
+      '&:hover': {
+        background: 'rgba(55,53,47,0.08)',
+        cursor: 'pointer'
+      },
+      borderRadius: 1
+    }}>
       <FormControl>
         <Select
             sx={{
-              paddingBottom: '8px',
               fontSize: '12px',
               color: ' #6B7280',
+              '& .MuiOutlinedInput-root': {
+                height: props?.height
+              },
               '& .MuiOutlinedInput-notchedOutline': {
                 border: '0px'
               },
               '& .MuiOutlinedInput-input': {
-                paddingBottom: '8px'
               }
             }}
           value={accessType}

@@ -39,8 +39,9 @@ export const ProfileInfo = (props: PropTypes): React.ReactElement => {
         return 40
     }
   }
-  const ProfileContWidth = getProfileLogoDimensions(props?.variant)
-  const ProfileLogoWidth = ProfileContWidth === 40 ? 40 : 24
+  const variant: ProfileInfoVariant = props?.variant ?? 'medium'
+  const ProfileContWidth: number = getProfileLogoDimensions(variant)
+  const ProfileLogoWidth: number = ProfileContWidth === 40 ? 40 : 24
 
   return (
         <Box sx={{

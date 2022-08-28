@@ -8,10 +8,10 @@ export interface Header {
 
 export interface InputField {
   placeholder: string
-  onChange: () => void
+  onChange?: () => void
 }
 export interface SearchInput {
-  placeholder: string
+  input: InputField
   invite: string
 }
 export interface About {
@@ -31,7 +31,7 @@ export interface Footer {
 
 export interface Modal1 {
   header: Header
-  inputField: InputField
+  inputField: SearchInput
   footer: Footer
 }
 export type ProfileInfoVariant = 'small' | 'medium'
@@ -47,5 +47,20 @@ export interface Bookmarked {
   dropdown: {
     options: string[]
     textVariant: TypographyVariant
+  }
+}
+
+export interface SearchWindowHeader {
+  inputField: InputField
+  dropdown: {
+    options: string[]
+  }
+  button: string
+}
+
+export interface SearchWindow {
+  header: SearchWindowHeader
+  footer: {
+    about: About
   }
 }

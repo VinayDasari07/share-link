@@ -1,7 +1,7 @@
 import { Box } from '@mui/material'
 import { Fragment } from 'react'
 import ShareBtn from '../../src/components/share-btn.component'
-import { share } from '../../content'
+import { share, searchWindow } from '../../content'
 import SearchEntities from '../../src/components/search-entities.component'
 
 const ShareLink = (): React.ReactElement => {
@@ -22,11 +22,11 @@ const ShareLink = (): React.ReactElement => {
                   <Box
                     sx={{
                       position: 'relative',
-                      top: '25%',
+                      top: '30%',
                       left: '25%'
                     }}
                   >
-                  <SearchEntities />
+                  <SearchEntities {...searchWindow}/>
                   </Box>
                 )}
             </Box>

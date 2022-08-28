@@ -7,7 +7,9 @@ export const share = {
       subtitle: 'Publish and share link with anyone'
     },
     inputField: {
-      placeholder: 'People, emails, groups',
+      input: {
+        placeholder: 'People, emails, groups'
+      },
       invite: 'Invite'
     },
     footer: {
@@ -39,6 +41,104 @@ export const bookmarked = {
       'Can edit',
       'Can view',
       'No access'
+    ]
+  }
+}
+
+export const searchWindowHeader = {
+  inputField: {
+    placeholder: 'Search emails, names or groups'
+  },
+  dropdown: {
+    options: [
+      'Full access',
+      'Can edit',
+      'Can view',
+      'No access'
+    ]
+  },
+  button: 'Invite'
+}
+
+export const searchWindow = {
+  header: {
+    ...searchWindowHeader
+  },
+  footer: {
+    about: {
+      logoUrl: '/question.svg',
+      ctaText: 'learn about sharing',
+      ctaUrl: 'https://www.google.com/'
+    }
+  }
+}
+
+export const searchResults = {
+  entity: {
+    person: [
+      {
+        name: 'Wade Cooper',
+        logoUrl: 'https://unsplash.com/s/photos/profile-picture'
+      },
+      {
+        name: 'Wade Cooper',
+        logoUrl: 'https://unsplash.com/s/photos/profile-picture'
+      },
+      {
+        name: 'Wade Cooper',
+        logoUrl: 'https://unsplash.com/s/photos/profile-picture'
+      },
+      {
+        name: 'Wade Cooper',
+        logoUrl: 'https://unsplash.com/s/photos/profile-picture'
+      },
+      {
+        name: 'Wade Cooper',
+        logoUrl: 'https://unsplash.com/s/photos/profile-picture'
+      },
+      {
+        name: 'Wade Cooper',
+        logoUrl: 'https://unsplash.com/s/photos/profile-picture'
+      },
+      {
+        name: 'Wade Cooper',
+        logoUrl: 'https://unsplash.com/s/photos/profile-picture'
+      },
+      {
+        name: 'Wade Cooper',
+        logoUrl: 'https://unsplash.com/s/photos/profile-picture'
+      },
+      {
+        name: 'Wade Cooper',
+        logoUrl: 'https://unsplash.com/s/photos/profile-picture'
+      },
+      {
+        name: 'Wade Cooper',
+        logoUrl: 'https://unsplash.com/s/photos/profile-picture'
+      }
+    ],
+    group: [
+      {
+        name: 'Product',
+        logoUrl: 'https://unsplash.com/s/photos/profile-picture'
+      },
+      {
+        name: 'Engineering',
+        logoUrl: 'https://unsplash.com/s/photos/profile-picture'
+      },
+      {
+        name: 'Human Resource',
+        logoUrl: 'https://unsplash.com/s/photos/profile-picture'
+      },
+      {
+        name: 'Infrastructure',
+        logoUrl: 'https://unsplash.com/s/photos/profile-picture'
+      },
+      {
+        name: 'Supply Chain',
+        logoUrl: 'https://unsplash.com/s/photos/profile-picture'
+      }
+
     ]
   }
 }

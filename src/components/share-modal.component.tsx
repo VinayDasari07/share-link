@@ -1,6 +1,6 @@
 import { Box, Divider, Stack, useTheme } from '@mui/material'
 import { bookmarked } from '../../content'
-import BookmarkedEntity from './bookmared-enitites.component'
+import BookmarkedEntity from './bookmared-entities.component'
 import SearchInput from './search-input.component'
 import ShareFooter from './share-footer.component'
 import ShareHeader from './share-header.component'

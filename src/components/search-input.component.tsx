@@ -16,7 +16,7 @@ export default function SearchInput (props: SearchInputType): React.ReactElement
             sx={{ display: 'flex', alignItems: 'center', width: '100%' }}
         >
             <InputField
-              placeholder={props?.placeholder}
+              placeholder={props?.input?.placeholder}
               onChange={handleChange}
             />
             <Button sx={{
