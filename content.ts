@@ -32,10 +32,13 @@ export const bookmarked = {
     name: 'Everyone at OSlash',
     description: '25 workspace members'
   },
-  options: [
-    'Full access',
-    'Can edit',
-    'Can view',
-    'No access'
-  ]
+  dropdown: {
+    textVariant: 'caption',
+    options: [
+      'Full access',
+      'Can edit',
+      'Can view',
+      'No access'
+    ]
+  }
 }

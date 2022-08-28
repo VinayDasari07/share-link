@@ -1,6 +1,7 @@
-import { Typography, Box, useTheme } from '@mui/material'
+import { Box, useTheme } from '@mui/material'
 import Image from 'next/image'
 import { About as PropType } from '../types/share.type'
+import { Typography } from './typography.component'
 
 const About = (props: PropType): React.ReactElement => {
   const theme = useTheme()

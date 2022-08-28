@@ -1,7 +1,8 @@
-import { Typography, Box, useTheme } from '@mui/material'
+import { Box, useTheme } from '@mui/material'
 import { Footer } from './types/share.type'
 import Image from 'next/image'
 import About from './common/about.component'
+import { Typography } from './common/typography.component'
 
 const ShareFooter = (props: Footer): React.ReactElement => {
   const theme = useTheme()

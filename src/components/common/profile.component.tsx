@@ -1,7 +1,8 @@
-import { Box, styled, Typography, useTheme } from '@mui/material'
+import { Box, styled, useTheme } from '@mui/material'
 import Image from 'next/image'
 import React from 'react'
 import { ProfileInfo as PropTypes, ProfileInfoVariant } from '../types/share.type'
+import { Typography } from './typography.component'
 
 const ProfileLogoCont = styled(Box)`
     display: flex;

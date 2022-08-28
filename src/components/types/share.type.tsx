@@ -1,3 +1,4 @@
+import { TypographyVariant } from '@mui/material'
 
 export interface Header {
   logoUrl: string
@@ -38,5 +39,8 @@ export interface ProfileInfo {
 
 export interface Bookmarked {
   profileInfo: ProfileInfo
-  options: string[]
+  dropdown: {
+    options: string[]
+    textVariant: TypographyVariant
+  }
 }

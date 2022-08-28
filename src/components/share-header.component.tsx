@@ -1,7 +1,8 @@
-import { Box, useTheme, Typography } from '@mui/material'
+import { Box, useTheme } from '@mui/material'
 import { AntSwitch } from '../../styles/components/switches'
 import { Header } from './types/share.type'
 import Image from 'next/image'
+import { Typography } from './common/typography.component'
 
 const ShareHeader = (props: Header): React.ReactElement => {
   const theme = useTheme()

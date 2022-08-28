@@ -10,7 +10,6 @@ const ShareModal = (props: Modal1): React.ReactElement => {
   const theme = useTheme()
   return (
         <Stack sx={{
-          alignItems: 'center',
           width: theme.spacing(64),
           opacity: 1,
           boxShadow: 3

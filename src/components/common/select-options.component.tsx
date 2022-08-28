@@ -3,9 +3,13 @@ import Box from '@mui/material/Box'
 import MenuItem from '@mui/material/MenuItem'
 import FormControl from '@mui/material/FormControl'
 import Select, { SelectChangeEvent } from '@mui/material/Select'
+import { Typography, TypographyProps } from './typography.component'
+import { TypographyVariant } from '@mui/material'
 
 interface Props {
   options: string[]
+  textVariant?: TypographyVariant
+  style?: TypographyProps
 }
 
 export const SelectOptions = (props: Props): React.ReactElement => {
@@ -37,7 +41,13 @@ export const SelectOptions = (props: Props): React.ReactElement => {
         >
           {props?.options?.map((option: string) => {
             return (
-                <MenuItem key={option} value={option}>{option}</MenuItem>
+                <MenuItem key={option} value={option}>
+                  <Typography
+                    variant={props?.textVariant}
+                  >
+                    {option}
+                  </Typography>
+                </MenuItem>
             )
           })}
         </Select>
