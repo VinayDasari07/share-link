@@ -13,7 +13,7 @@ interface Props {
   style?: TypographyProps
 }
 
-export const SelectOptions = ({
+const SelectOptionsComp = ({
   options = [],
   size = 'medium',
   textVariant,
@@ -64,3 +64,5 @@ export const SelectOptions = ({
     </Box>
   )
 }
+
+export const SelectOptions = React.memo(SelectOptionsComp)

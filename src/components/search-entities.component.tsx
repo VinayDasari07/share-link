@@ -1,12 +1,16 @@
 import { Box, Divider, Stack } from '@mui/material'
-import { searchResults } from '../../content'
 import About from './common/about.component'
 import SearchResults from './search-results.component'
+import { store } from '../../store/ShareUrlStore'
 import SearchWindowHeader from './search-window-header.component'
 import { SearchWindow } from './types/share.type'
+import { observer } from 'mobx-react'
 
 const SearchEntities = (props: SearchWindow): React.ReactElement => {
-  console.log('testing props', props)
+  const headerProps = {
+    ...props?.header,
+    store
+  }
   return (
         <Box>
            <Stack
@@ -16,13 +20,13 @@ const SearchEntities = (props: SearchWindow): React.ReactElement => {
                   boxShadow: 3
                 }}
             >
-              <SearchWindowHeader {...props?.header}/>
+              <SearchWindowHeader {...headerProps}/>
               <Divider />
               <Box sx={{
                 height: 272,
                 overflow: 'auto'
               }}>
-                <SearchResults {...searchResults}/>
+                <SearchResults {...store?.searchResults}/>
               </Box>
               <Divider />
               <Box sx={{
@@ -42,4 +46,4 @@ const SearchEntities = (props: SearchWindow): React.ReactElement => {
   )
 }
 
-export default SearchEntities
+export default observer(SearchEntities)

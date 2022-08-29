@@ -56,6 +56,7 @@ export const ProfileInfo = (props: PropTypes): React.ReactElement => {
                     height={ProfileLogoWidth}
                 >
                     <Image
+                        unoptimized={true}
                         src={props?.logoUrl}
                         alt="oslash logo"
                         width={ProfileLogoWidth}

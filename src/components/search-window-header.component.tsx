@@ -6,8 +6,8 @@ import InputField from './common/input-field.component'
 import { SelectOptions } from './common/select-options.component'
 
 export default function SearchWindowHeader (props: SearchWindowHeaderType): React.ReactElement {
-  const handleChange = (): void => {
-    console.log('testing------')
+  const handleChange = (event: any): void => {
+    props?.store?.updateSearchInput(event.target.value)
   }
   return (
     <Box sx={{
@@ -25,6 +25,7 @@ export default function SearchWindowHeader (props: SearchWindowHeaderType): Reac
             }}
         >
             <InputField
+              autoFocus={true}
               placeholder={props?.inputField?.placeholder}
               onChange={handleChange}
             />

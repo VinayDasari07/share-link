@@ -5,9 +5,14 @@ import SearchInput from './search-input.component'
 import ShareFooter from './share-footer.component'
 import ShareHeader from './share-header.component'
 import { Modal1 } from './types/share.type'
+import { store } from '../../store/ShareUrlStore'
 
 const ShareModal = (props: Modal1): React.ReactElement => {
   const theme = useTheme()
+  const searchInputProps = {
+    ...props?.inputField,
+    store
+  }
   return (
         <Stack sx={{
           width: theme.spacing(64),
@@ -24,7 +29,7 @@ const ShareModal = (props: Modal1): React.ReactElement => {
                   p: 2
                 }}>
                     <Box>
-                      <SearchInput {...props?.inputField}/>
+                      <SearchInput {...searchInputProps}/>
                       <BookmarkedEntity {...bookmarked}/>
                     </Box>
                 </Box>

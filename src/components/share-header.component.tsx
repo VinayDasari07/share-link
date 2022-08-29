@@ -6,7 +6,7 @@ import { Typography } from './common/typography.component'
 
 const ShareHeader = (props: Header): React.ReactElement => {
   const theme = useTheme()
-  const label = { inputProps: { 'aria-label': 'Switch demo' } }
+  const label = { inputProps: { 'aria-label': 'Switch Share to web' } }
 
   return (
         <Box sx={{

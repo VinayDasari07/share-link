@@ -8,11 +8,13 @@ export interface Header {
 
 export interface InputField {
   placeholder: string
+  autoFocus?: boolean
   onChange?: () => void
 }
 export interface SearchInput {
   input: InputField
   invite: string
+  store?: any
 }
 export interface About {
   logoUrl: string
@@ -43,7 +45,7 @@ export interface ProfileInfo {
 }
 
 export interface Bookmarked {
-  profileInfo: ProfileInfo
+  profileInfo?: ProfileInfo
   dropdown: {
     options: string[]
     textVariant: TypographyVariant
@@ -51,6 +53,7 @@ export interface Bookmarked {
 }
 
 export interface SearchWindowHeader {
+  store?: any
   inputField: InputField
   dropdown: {
     options: string[]

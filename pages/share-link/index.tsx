@@ -3,9 +3,10 @@ import { Fragment } from 'react'
 import ShareBtn from '../../src/components/share-btn.component'
 import { share, searchWindow } from '../../content'
 import SearchEntities from '../../src/components/search-entities.component'
+import { store } from '../../store/ShareUrlStore'
+import { observer } from 'mobx-react'
 
 const ShareLink = (): React.ReactElement => {
-  const showSearchWindow = true
   return (
         <Fragment>
             <Box
@@ -16,9 +17,9 @@ const ShareLink = (): React.ReactElement => {
                   height: 600
                 }}
             >
-                <ShareBtn {...share}/>
+                {!store?.clickedOnSearch && <ShareBtn {...share}/>}
                 <Box sx={{ height: 20 }}></Box>
-                {showSearchWindow && (
+                {store?.clickedOnSearch && (
                   <Box
                     sx={{
                       position: 'relative',
@@ -35,4 +36,4 @@ const ShareLink = (): React.ReactElement => {
   )
 }
 
-export default ShareLink
+export default observer(ShareLink)

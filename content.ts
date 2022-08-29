@@ -83,7 +83,7 @@ export const searchResults = {
       },
       {
         name: 'Arlene Mccoy',
-        logoUrl: '/Avatar.png'
+        logoUrl: 'https://i.pinimg.com/474x/98/51/1e/98511ee98a1930b8938e42caf0904d2d.jpg'
       },
       {
         name: 'Tom cook',
