@@ -9,16 +9,11 @@ interface ProfileContProps {
   hasSearchedInput: boolean
   hoveredIndex: number
 }
-const handleHoverColor = (props: ProfileContProps): string => {
-  if (
-    (props?.index === props?.hoveredIndex && props?.hasSearchedInput)
-  ) {
-    return '#F3F4F6'
-  } else return ''
-}
+
 const ProfileCont = styled(Box)<ProfileContProps>`
     padding: 0px 16px;
-    background: ${handleHoverColor}
+    background: ${props => props?.index === props?.hoveredIndex ? '#F3F4F6' : ''};
+    cursor: ${props => props?.index === props?.hoveredIndex ? 'pointer' : ''};
 `
 const SearchResults = (): React.ReactElement => {
   const searchResultsEntity = store?.searchResults?.entity ?? {}
@@ -26,6 +21,7 @@ const SearchResults = (): React.ReactElement => {
   const handleOnMouseEnter = (index: number): void => {
     console.log('testing------handleOnMouseEnter', index)
     setHoveredIndex(index)
+    store?.updateIndexOfSelectedProfileOnSearch(index)
   }
   // const handleOnMouseLeave = (index: number): void => {
   //   setHoveredIndex(index)
@@ -38,7 +34,8 @@ const SearchResults = (): React.ReactElement => {
               {((searchResultsEntity?.person?.length) === 0) && ((searchResultsEntity?.group?.length) === 0) && 'No Results found'}
             </Box>
             <Box sx={{
-              p: '0 24px 8px'
+              p: '0 24px 8px',
+              fontWeight: 500
             }}>
                 {(Boolean(searchResultsEntity?.person?.length)) && 'Select a person'}
             </Box>
@@ -54,6 +51,7 @@ const SearchResults = (): React.ReactElement => {
                       hoveredIndex={hoveredIndex}
                       hasSearchedInput={Boolean(store?.searchInput)}
                       onMouseEnter={() => handleOnMouseEnter(index)}
+                      onClick={() => store?.getProfileFromInputOnSearch()}
                       // onMouseLeave={() => handleOnMouseLeave(index)}
                     >
                       <ProfileInfo
@@ -65,7 +63,8 @@ const SearchResults = (): React.ReactElement => {
                 })}
             </Box>
             <Box sx={{
-              p: '0px 24px 8px'
+              p: '0px 24px 8px',
+              fontWeight: 500
             }}>
                 {(Boolean(searchResultsEntity?.group?.length)) && 'Select a group'}
             </Box>

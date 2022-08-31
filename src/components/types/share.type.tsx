@@ -9,8 +9,8 @@ export interface Header {
 export interface InputField {
   placeholder: string
   autoFocus?: boolean
-  onChange?: () => void
-  handleOnKeyPress?: () => void
+  onChange?: (event: any) => void
+  handleOnKeyPress?: (event: any) => void
 }
 export interface SearchInput {
   input: InputField
@@ -54,7 +54,6 @@ export interface Bookmarked {
 }
 
 export interface SearchWindowHeader {
-  store?: any
   inputField: InputField
   dropdown: {
     options: string[]

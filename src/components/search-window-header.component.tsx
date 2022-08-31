@@ -6,24 +6,24 @@ import { Typography } from './common/typography.component'
 import InputField from './common/input-field.component'
 import { SelectOptions } from './common/select-options.component'
 import { observer } from 'mobx-react'
+import Pill from './common/pill.component'
+import { store } from '../../store/ShareUrlStore'
 
 const SearchWindowHeader = (props: SearchWindowHeaderType): React.ReactElement => {
   const handleChange = (event: any): void => {
-    props?.store?.updateSearchResults(event.target.value)
+    store?.updateSearchResults(event.target.value)
   }
   const handleOnKeyPress = (event: any): void => {
     if (event.key === 'Enter') {
-      const numberOfPersonsFound = props?.store?.searchResults?.entity?.person?.length ?? 0
-      const numberOfGroupsFound = props?.store?.searchResults?.entity?.group?.length ?? 0
-      if (Boolean(props?.store?.searchInput) &&
-      (numberOfPersonsFound !== 0 ||
-        numberOfGroupsFound !== 0)) {
-        console.log('testing-----event', event, numberOfPersonsFound, numberOfGroupsFound)
-        props?.store?.toggleHasSelectedOnSearch()
-      }
+      store?.getProfileFromInputOnSearch()
     }
   }
-  const hasSelectedOnSearch = props?.store?.hasSelectedOnSearch ?? false
+
+  const removePill = (event: any): void => {
+    store?.toggleHasSelectedOnSearch()
+    store?.restoreSearchResults()
+  }
+  const hasSelectedOnSearch = store?.hasSelectedOnSearch ?? false
   return (
     <Box sx={{
       width: '100%',
@@ -52,6 +52,7 @@ const SearchWindowHeader = (props: SearchWindowHeaderType): React.ReactElement =
               )}
               {(hasSelectedOnSearch) && (
                 <Box>
+                  <Pill name='Tom Cook' handleClick={removePill} />
                 </Box>
               )}
             </Box>

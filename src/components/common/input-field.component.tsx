@@ -12,7 +12,7 @@ export default function InputField (props: InputFieldType): React.ReactElement {
             placeholder={props?.placeholder}
             onChange={props?.onChange}
             autoFocus={props?.autoFocus}
-            inputProps={{ 'aria-label': `Search ${props?.placeholder}` }}
+            inputProps={{ 'aria-label': `${props?.placeholder}` }}
         />
     </Box>
 

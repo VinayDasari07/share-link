@@ -79,7 +79,7 @@ export const searchResults = {
     person: [
       {
         name: 'Wade Cooper',
-        logoUrl: '/Avatar.png',
+        logoUrl: '/avatar.png',
         email: 'wade.cooper@oslash.com'
       },
       {
@@ -89,65 +89,65 @@ export const searchResults = {
       },
       {
         name: 'Tom cook',
-        logoUrl: '/Avatar.png',
+        logoUrl: '/avatar.png',
         email: 'tom.cook@oslash.com'
       },
       {
         name: 'John E. Bowers',
-        logoUrl: '/Avatar.png',
+        logoUrl: '/avatar.png',
         email: 'john.bowers@gmail.com'
       },
       {
         name: 'Glenn L. Harjo',
-        logoUrl: '/Avatar.png',
+        logoUrl: '/avatar.png',
         email: 'glenn.harjo@oslash.com'
       },
       {
         name: 'Jennifer C. Beaty',
-        logoUrl: '/Avatar.png',
+        logoUrl: '/avatar.png',
         email: 'jennifer.beaty@oslash.com'
       },
       {
         name: 'Toni B. Lacoste',
-        logoUrl: '/Avatar.png',
+        logoUrl: '/avatar.png',
         email: 'toni.lacoste@oslash.com'
       },
       {
         name: 'Vernon K. Ward',
-        logoUrl: '/Avatar.png',
+        logoUrl: '/avatar.png',
         email: 'vernon.ward@oslash.com'
       },
       {
         name: 'Michael B. Self',
-        logoUrl: '/Avatar.png',
+        logoUrl: '/avatar.png',
         email: 'michael.self@oslash.com'
       },
       {
         name: 'Patrick S. Shreve',
-        logoUrl: '/Avatar.png',
+        logoUrl: '/avatar.png',
         email: 'patrick.shreve@oslash.com'
       }
     ],
     group: [
       {
         name: 'Product',
-        logoUrl: '/Avatar.png'
+        logoUrl: '/avatar.png'
       },
       {
         name: 'Engineering',
-        logoUrl: '/Avatar.png'
+        logoUrl: '/avatar.png'
       },
       {
         name: 'Human Resource',
-        logoUrl: '/Avatar.png'
+        logoUrl: '/avatar.png'
       },
       {
         name: 'Infrastructure',
-        logoUrl: '/Avatar.png'
+        logoUrl: '/avatar.png'
       },
       {
         name: 'Supply Chain',
-        logoUrl: '/Avatar.png'
+        logoUrl: '/avatar.png'
       }
 
     ]
