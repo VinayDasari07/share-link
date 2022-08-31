@@ -1,57 +1,95 @@
-import { Box } from '@mui/material'
-import { toJS } from 'mobx'
+import { Box, styled } from '@mui/material'
 import { observer } from 'mobx-react'
 import { ProfileInfo } from './common/profile.component'
-import { SearchResults as SearchResultsType } from './types/share.type'
+import { store } from '../../store/ShareUrlStore'
+import { useState } from 'react'
 
-const SearchResults = (props: SearchResultsType): React.ReactElement => {
+interface ProfileContProps {
+  index: number
+  hasSearchedInput: boolean
+  hoveredIndex: number
+}
+const handleHoverColor = (props: ProfileContProps): string => {
+  if (
+    (props?.index === props?.hoveredIndex && props?.hasSearchedInput)
+  ) {
+    return '#F3F4F6'
+  } else return ''
+}
+const ProfileCont = styled(Box)<ProfileContProps>`
+    padding: 0px 16px;
+    background: ${handleHoverColor}
+`
+const SearchResults = (): React.ReactElement => {
+  const searchResultsEntity = store?.searchResults?.entity ?? {}
+  const [hoveredIndex, setHoveredIndex] = useState<number>(1)
+  const handleOnMouseEnter = (index: number): void => {
+    console.log('testing------handleOnMouseEnter', index)
+    setHoveredIndex(index)
+  }
+  // const handleOnMouseLeave = (index: number): void => {
+  //   setHoveredIndex(index)
+  // }
   return (
         <Box sx={{
           p: 2
         }}>
             <Box>
-              {((props?.entity?.person?.length) === 0) && ((props?.entity?.group?.length) === 0) && 'No Results found'}
+              {((searchResultsEntity?.person?.length) === 0) && ((searchResultsEntity?.group?.length) === 0) && 'No Results found'}
+            </Box>
+            <Box sx={{
+              p: '0 24px 8px'
+            }}>
+                {(Boolean(searchResultsEntity?.person?.length)) && 'Select a person'}
             </Box>
             <Box sx={{
               p: '0 8px 8px'
             }}>
-                {(Boolean(props?.entity?.person?.length)) && 'Select a person'}
-            </Box>
-            <Box sx={{
-              p: '0 8px 8px'
-            }}>
-                {props?.entity?.person?.map((person, index) => {
-                  // if (index === 0 || index === 1) {
+                {searchResultsEntity?.person?.map((person, ind) => {
+                  const index = ind + 1
                   return (
-                        <ProfileInfo
-                            key={index}
-                            {...person}
-                            variant='small'
-                        />
+                    <ProfileCont
+                      key={index}
+                      index={index}
+                      hoveredIndex={hoveredIndex}
+                      hasSearchedInput={Boolean(store?.searchInput)}
+                      onMouseEnter={() => handleOnMouseEnter(index)}
+                      // onMouseLeave={() => handleOnMouseLeave(index)}
+                    >
+                      <ProfileInfo
+                          {...person}
+                          variant='small'
+                      />
+                    </ProfileCont>
                   )
-                  // }
-                  // return null
                 })}
             </Box>
             <Box sx={{
-              p: '0px 8px 8px'
+              p: '0px 24px 8px'
             }}>
-                {(Boolean(props?.entity?.group?.length)) && 'Select a group'}
+                {(Boolean(searchResultsEntity?.group?.length)) && 'Select a group'}
             </Box>
             <Box sx={{
               p: '0 8px 8px'
             }}>
-            {props?.entity?.group?.map((group, index) => {
-              // if (index === 0 || index === 1) {
+            {searchResultsEntity?.group?.map((group, ind) => {
+              const index = (ind + 1) + 100
               return (
-                    <ProfileInfo
-                        key={index}
-                        {...group}
-                        variant='small'
-                    />
+                <ProfileCont
+                  key={index}
+                  index={index}
+                  hoveredIndex={hoveredIndex}
+                  hasSearchedInput={Boolean(store?.searchInput)}
+                  onMouseEnter={() => handleOnMouseEnter(index)}
+                  // onMouseLeave={() => handleOnMouseLeave(index)}
+                >
+                  <ProfileInfo
+                      key={index}
+                      {...group}
+                      variant='small'
+                  />
+                </ProfileCont>
               )
-              // }
-              // return null
             })}
             </Box>
         </Box>

@@ -26,7 +26,7 @@ const SearchEntities = (props: SearchWindow): React.ReactElement => {
                 height: 272,
                 overflow: 'auto'
               }}>
-                <SearchResults {...store?.searchResults}/>
+                <SearchResults/>
               </Box>
               <Divider />
               <Box sx={{

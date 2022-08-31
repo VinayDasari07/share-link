@@ -20,13 +20,15 @@ const ShareBtn = (props: Props): React.ReactElement => {
     setShowModal((prevState: Boolean) => !prevState)
   }
   return (
-        <Box sx={{
-          position: 'relative',
-          top: '25%',
-          left: '25%'
-        }}>
+        <Box
+          sx={{
+            position: 'relative',
+            top: '25%',
+            left: '25%'
+          }}
+        >
             <Button
-                variant="contained"
+                variant='contained'
                 onClick={toggleModal}
                 endIcon={<ShareIcon />}
             >

@@ -79,43 +79,53 @@ export const searchResults = {
     person: [
       {
         name: 'Wade Cooper',
-        logoUrl: '/Avatar.png'
+        logoUrl: '/Avatar.png',
+        email: 'wade.cooper@oslash.com'
       },
       {
         name: 'Arlene Mccoy',
-        logoUrl: 'https://i.pinimg.com/474x/98/51/1e/98511ee98a1930b8938e42caf0904d2d.jpg'
+        logoUrl: 'https://i.pinimg.com/474x/98/51/1e/98511ee98a1930b8938e42caf0904d2d.jpg',
+        email: 'arlene.mccoy@gmail.com'
       },
       {
         name: 'Tom cook',
-        logoUrl: '/Avatar.png'
+        logoUrl: '/Avatar.png',
+        email: 'tom.cook@oslash.com'
       },
       {
         name: 'John E. Bowers',
-        logoUrl: '/Avatar.png'
+        logoUrl: '/Avatar.png',
+        email: 'john.bowers@gmail.com'
       },
       {
         name: 'Glenn L. Harjo',
-        logoUrl: '/Avatar.png'
+        logoUrl: '/Avatar.png',
+        email: 'glenn.harjo@oslash.com'
       },
       {
         name: 'Jennifer C. Beaty',
-        logoUrl: '/Avatar.png'
+        logoUrl: '/Avatar.png',
+        email: 'jennifer.beaty@oslash.com'
       },
       {
         name: 'Toni B. Lacoste',
-        logoUrl: '/Avatar.png'
+        logoUrl: '/Avatar.png',
+        email: 'toni.lacoste@oslash.com'
       },
       {
         name: 'Vernon K. Ward',
-        logoUrl: '/Avatar.png'
+        logoUrl: '/Avatar.png',
+        email: 'vernon.ward@oslash.com'
       },
       {
         name: 'Michael B. Self',
-        logoUrl: '/Avatar.png'
+        logoUrl: '/Avatar.png',
+        email: 'michael.self@oslash.com'
       },
       {
         name: 'Patrick S. Shreve',
-        logoUrl: '/Avatar.png'
+        logoUrl: '/Avatar.png',
+        email: 'patrick.shreve@oslash.com'
       }
     ],
     group: [

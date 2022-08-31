@@ -10,6 +10,7 @@ export interface InputField {
   placeholder: string
   autoFocus?: boolean
   onChange?: () => void
+  handleOnKeyPress?: () => void
 }
 export interface SearchInput {
   input: InputField
@@ -72,6 +73,7 @@ export interface SearchWindow {
 export interface SearchProfile {
   name: string
   logoUrl: string
+  email?: string
 }
 
 export interface Entities {

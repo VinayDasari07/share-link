@@ -6,6 +6,8 @@ class ShareUrlStore {
   searchInput: string = ''
   clickedOnSearch: boolean = false
   searchResults: SearchResultsType = searchResults
+  hasSelectedOnSearch: boolean = false
+  selectedProfileOnSearchIndex: boolean = false
   constructor () {
     makeAutoObservable(this)
   }
@@ -14,10 +16,15 @@ class ShareUrlStore {
     runInAction(() => {
       this.clickedOnSearch = !this.clickedOnSearch
     })
-    console.log('testing this.clickedOnSearch', this.clickedOnSearch)
   }
 
-  updateSearchInput (searchInput: string): void {
+  toggleHasSelectedOnSearch (): void {
+    runInAction(() => {
+      this.hasSelectedOnSearch = !this.hasSelectedOnSearch
+    })
+  }
+
+  updateSearchResults (searchInput: string): void {
     runInAction(() => {
       this.searchInput = searchInput
       const searchPeople = searchResults?.entity?.person?.filter((person) => person?.name?.includes(searchInput))
