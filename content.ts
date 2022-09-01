@@ -79,7 +79,7 @@ export const searchResults = {
     person: [
       {
         name: 'Wade Cooper',
-        logoUrl: '/avatar.png',
+        logoUrl: 'https://img.freepik.com/free-photo/happy-man-with-long-thick-ginger-beard-has-friendly-smile_273609-16616.jpg',
         email: 'wade.cooper@company.com'
       },
       {
