@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/strict-boolean-expressions */
 import * as React from 'react'
 import Box from '@mui/material/Box'
 import MenuItem from '@mui/material/MenuItem'
@@ -26,7 +27,9 @@ const SelectOptionsComp = ({
   const [accessType, setAccessType] = React.useState(initialValue)
   const handleChange = (event: SelectChangeEvent): void => {
     setAccessType(event.target.value)
-    getSelectedEvent(event)
+    if (getSelectedEvent) {
+      getSelectedEvent(event)
+    }
   }
 
   return (

@@ -4,6 +4,7 @@ import { bookmarked, searchResults as searchResultsData } from '../content'
 import { BookmarkedProfiles, SearchProfile, SearchResults as SearchResultsType } from '../src/components/types/share.type'
 
 class ShareUrlStore {
+  showShareWindow: boolean = false
   searchInput: string = ''
   clickedOnSearch: boolean = false
   searchResults: SearchResultsType = searchResultsData
@@ -11,7 +12,7 @@ class ShareUrlStore {
   indexOfSelectedProfileOnSearch: number = 1
   accessTypeSelectedOnSearch: string = 'Full access'
   bookmarkedProfiles: BookmarkedProfiles[] = [{ ...bookmarked?.profileInfo, accessType: 'Full access' }]
-  profileInvitedOnSearch: BookmarkedProfiles[] = []
+  profileInvitedOnSearch: SearchProfile[] = []
   constructor () {
     makeAutoObservable(this)
   }
@@ -25,6 +26,12 @@ class ShareUrlStore {
   toggleHasSelectedOnSearch (): void {
     runInAction(() => {
       this.hasSelectedOnSearch = !this.hasSelectedOnSearch
+    })
+  }
+
+  toggleShowShareWindow (): void {
+    runInAction(() => {
+      this.showShareWindow = !this.showShareWindow
     })
   }
 
@@ -88,15 +95,23 @@ class ShareUrlStore {
     })
   }
 
+  resetAccessType (): void {
+    runInAction(() => {
+      this.accessTypeSelectedOnSearch = 'Full access'
+    })
+  }
+
   addProfileInvitedOnSearch (profile: SearchProfile): void {
     runInAction(() => {
-      const profileWithAccess = [{
-        ...profile,
-        accessType: this.accessTypeSelectedOnSearch
+      const profileArray = [{
+        ...profile
       }]
-      const profiles = this.profileInvitedOnSearch?.filter((profil) => profil?.name !== profile?.name)
-      this.profileInvitedOnSearch = [...profiles, ...profileWithAccess]
-      this.resetSearchInput()
+      const isSelected = this.profileInvitedOnSearch?.find((profil) => profil?.name === profile?.name)
+      const isBookmarked = this.bookmarkedProfiles?.find((profil) => profil?.name === profile?.name)
+      if (!isSelected && !isBookmarked) {
+        this.profileInvitedOnSearch = [...this.profileInvitedOnSearch, ...profileArray]
+        this.resetSearchInput()
+      }
     })
   }
 
@@ -107,9 +122,22 @@ class ShareUrlStore {
     })
   }
 
+  resetProfileInvitedOnSearch (): void {
+    runInAction(() => {
+      this.profileInvitedOnSearch = []
+    })
+  }
+
   updateBookmarkedProfiles (): void {
     runInAction(() => {
-      this.bookmarkedProfiles = [...this.bookmarkedProfiles, ...this.profileInvitedOnSearch]
+      const profilesWithAccessType = this.profileInvitedOnSearch?.map((profile) => {
+        return {
+          ...profile,
+          accessType: this.accessTypeSelectedOnSearch
+        }
+      })
+      this.bookmarkedProfiles = [...this.bookmarkedProfiles, ...profilesWithAccessType]
+      this.resetProfileInvitedOnSearch()
       this.toggleClickedOnSearch()
     })
   }

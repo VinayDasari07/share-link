@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/strict-boolean-expressions */
 import { Box, styled } from '@mui/material'
 import { observer } from 'mobx-react'
 import { ProfileInfo } from './common/profile.component'
@@ -8,8 +9,22 @@ interface ProfileContProps {
   index: number
   hasSearchedInput: boolean
   hoveredIndex: number
+  name: string
 }
 
+// const getCursor = (props: ProfileContProps): string => {
+//   const hasHovered = props?.index === props?.hoveredIndex
+//   const hasAlreadySelected = store?.profileInvitedOnSearch?.find((profile) => profile?.name === props?.name) ?? false
+//   const hasAlreadyBookmarked = store?.bookmarkedProfiles?.find((profile) => profile?.name === props?.name) ?? false
+//   let cursor = ''
+//   if (hasAlreadySelected || hasAlreadyBookmarked) {
+//     cursor = 'not-allowed'
+//   } else if (hasHovered) {
+//     cursor = 'pointer'
+//   }
+//   console.log('testing------cursor', props?.name, store?.bookmarkedProfiles, hasAlreadySelected, hasAlreadyBookmarked,hasHovered,  cursor)
+//   return cursor
+// }
 const ProfileCont = styled(Box)<ProfileContProps>`
     padding: 0px 16px;
     background: ${props => props?.index === props?.hoveredIndex ? '#F3F4F6' : ''};
@@ -29,12 +44,14 @@ const SearchResults = (): React.ReactElement => {
   }, [searchResultsEntity?.person?.length, searchResultsEntity?.group?.length])
 
   const handleOnMouseEnter = (index: number): void => {
-    console.log('testing------handleOnMouseEnter', index)
     setHoveredIndex(index)
     store?.updateIndexOfSelectedProfileOnSearch(index)
   }
 
-  console.log('testing------hoveredIndex', hoveredIndex)
+  const handleClick = (): void => {
+    store?.getProfileFromInputOnSearch()
+  }
+
   return (
         <Box sx={{
           p: 2
@@ -57,10 +74,11 @@ const SearchResults = (): React.ReactElement => {
                     <ProfileCont
                       key={index}
                       index={index}
+                      name={person?.name}
                       hoveredIndex={hoveredIndex}
                       hasSearchedInput={Boolean(store?.searchInput)}
                       onMouseEnter={() => handleOnMouseEnter(index)}
-                      onClick={() => store?.getProfileFromInputOnSearch()}
+                      onClick={handleClick}
                     >
                       <ProfileInfo
                           {...person}
@@ -85,10 +103,11 @@ const SearchResults = (): React.ReactElement => {
                 <ProfileCont
                   key={index}
                   index={index}
+                  name={group?.name}
                   hoveredIndex={hoveredIndex}
                   hasSearchedInput={Boolean(store?.searchInput)}
                   onMouseEnter={() => handleOnMouseEnter(index)}
-                  onClick={() => store?.getProfileFromInputOnSearch()}
+                  onClick={handleClick}
                 >
                   <ProfileInfo
                       key={index}

@@ -81,6 +81,7 @@ export interface BookmarkedProfiles {
   logoUrl: string
   email?: string
   accessType: string
+  description?: string
 }
 
 export interface Entities {

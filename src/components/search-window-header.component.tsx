@@ -10,6 +10,8 @@ import Pill from './common/pill.component'
 import { store } from '../../store/ShareUrlStore'
 
 const SearchWindowHeader = (props: SearchWindowHeaderType): React.ReactElement => {
+  const hasSelectedOnSearch = store?.profileInvitedOnSearch?.length !== 0 ?? false
+
   const handleChange = (event: any): void => {
     store?.updateSearchResults(event.target.value)
   }
@@ -29,9 +31,11 @@ const SearchWindowHeader = (props: SearchWindowHeaderType): React.ReactElement =
   }
 
   const handleInviteClick = (event: any): void => {
-    store?.updateBookmarkedProfiles()
+    if (hasSelectedOnSearch) {
+      store?.updateBookmarkedProfiles()
+      store?.resetAccessType()
+    }
   }
-  const hasSelectedOnSearch = store?.profileInvitedOnSearch?.length !== 0 ?? false
   return (
     <Box sx={{
       width: '100%',
@@ -109,29 +113,36 @@ const SearchWindowHeader = (props: SearchWindowHeaderType): React.ReactElement =
                 flexDirection: 'row'
               }}
             >
-              <Box>
+              <Box
+                sx={{
+                  display: 'flex',
+                  height: 40
+                }}
+              >
                 <SelectOptions
-                  size='medium'
+                  size='small'
                   options={props?.dropdown?.options}
                   getSelectedEvent={handleDropdownChange}
-                  initialValue=''
+                  initialValue={store?.accessTypeSelectedOnSearch}
                 />
               </Box>
               <Box
                 sx={{
                   display: 'flex',
-                  justifyContent: 'center'
+                  justifyContent: 'center',
+                  alignItems: 'center'
                 }}
               >
                 <Button
                   onClick={handleInviteClick}
                   sx={{
+                    height: '34px',
                     ml: 1.5,
                     background: '#FFFFFF',
                     transition: 'background 20ms ease-in 0s',
                     '&:hover': {
                       background: 'rgba(55,53,47,0.08)',
-                      cursor: 'pointer'
+                      cursor: hasSelectedOnSearch ? 'pointer' : 'not-allowed'
                     }
                   }}
                 >

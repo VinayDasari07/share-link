@@ -27,7 +27,8 @@ const ShareModal = (props: Modal1): React.ReactElement => {
                 <Divider />
                 <Box sx={{
                   p: 2,
-                  height: 194
+                  height: 194,
+                  overflow: 'auto'
                 }}>
                     <Box>
                       <Box>

@@ -1,9 +1,10 @@
 /* eslint-disable @typescript-eslint/strict-boolean-expressions */
 import { Box, Button } from '@mui/material'
 import ShareIcon from '@mui/icons-material/Share'
-import { useState } from 'react'
 import dynamic from 'next/dynamic'
 import { Modal1 } from './types/share.type'
+import { store } from '../../store/ShareUrlStore'
+import { observer } from 'mobx-react'
 
 const ShareModal = dynamic(async () => await import('./share-modal.component'), {
   ssr: false
@@ -13,11 +14,10 @@ interface Props {
   shareBtn: string
   modal1: Modal1
 }
-const ShareBtn = (props: Props): React.ReactElement => {
-  const [showModal, setShowModal] = useState<Boolean>(false)
 
+const ShareBtn = (props: Props): React.ReactElement => {
   const toggleModal = (): void => {
-    setShowModal((prevState: Boolean) => !prevState)
+    store?.toggleShowShareWindow()
   }
   return (
         <Box
@@ -34,7 +34,7 @@ const ShareBtn = (props: Props): React.ReactElement => {
             >
                 {props?.shareBtn}
             </Button>
-            {showModal && (
+            {store?.showShareWindow && (
                 <ShareModal {...props?.modal1}/>
             )}
 
@@ -42,4 +42,4 @@ const ShareBtn = (props: Props): React.ReactElement => {
   )
 }
 
-export default ShareBtn
+export default observer(ShareBtn)
