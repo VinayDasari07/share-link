@@ -5,25 +5,28 @@ import FormControl from '@mui/material/FormControl'
 import Select, { SelectChangeEvent } from '@mui/material/Select'
 import { Typography, TypographyProps } from './typography.component'
 import { TypographyVariant } from '@mui/material'
-import { store } from '../../../store/ShareUrlStore'
 
 interface Props {
   options: string[]
   size?: 'small' | 'medium'
   textVariant?: TypographyVariant
   style?: TypographyProps
+  getSelectedEvent: (event: SelectChangeEvent) => void
+  initialValue: string
 }
 
 const SelectOptionsComp = ({
   options = [],
   size = 'medium',
   textVariant,
+  getSelectedEvent,
+  initialValue = '',
   style
 }: Props): React.ReactElement => {
-  const [accessType, setAccessType] = React.useState(options[0])
+  const [accessType, setAccessType] = React.useState(initialValue)
   const handleChange = (event: SelectChangeEvent): void => {
     setAccessType(event.target.value)
-    store?.updateAccessType(event.target.value)
+    getSelectedEvent(event)
   }
 
   return (

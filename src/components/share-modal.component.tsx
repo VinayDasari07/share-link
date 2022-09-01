@@ -1,11 +1,11 @@
 import { Box, Divider, Stack, useTheme } from '@mui/material'
-import { bookmarked } from '../../content'
-import BookmarkedEntity from './bookmared-entities.component'
+import BookmarkedProfiles from './bookmared-profiles.component'
 import SearchInput from './search-input.component'
 import ShareFooter from './share-footer.component'
 import ShareHeader from './share-header.component'
 import { Modal1 } from './types/share.type'
 import { store } from '../../store/ShareUrlStore'
+import { observer } from 'mobx-react'
 
 const ShareModal = (props: Modal1): React.ReactElement => {
   const theme = useTheme()
@@ -26,11 +26,16 @@ const ShareModal = (props: Modal1): React.ReactElement => {
                 <ShareHeader {...props?.header}/>
                 <Divider />
                 <Box sx={{
-                  p: 2
+                  p: 2,
+                  height: 194
                 }}>
                     <Box>
-                      <SearchInput {...searchInputProps}/>
-                      <BookmarkedEntity {...bookmarked}/>
+                      <Box>
+                        <SearchInput {...searchInputProps}/>
+                      </Box>
+                      <Box>
+                        <BookmarkedProfiles />
+                      </Box>
                     </Box>
                 </Box>
             </Box>
@@ -40,4 +45,4 @@ const ShareModal = (props: Modal1): React.ReactElement => {
   )
 }
 
-export default ShareModal
+export default observer(ShareModal)

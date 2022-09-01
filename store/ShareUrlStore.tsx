@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/strict-boolean-expressions */
 import { makeAutoObservable, runInAction } from 'mobx'
-import { searchResults as searchResultsData } from '../content'
-import { SearchProfile, SearchResults as SearchResultsType } from '../src/components/types/share.type'
+import { bookmarked, searchResults as searchResultsData } from '../content'
+import { BookmarkedProfiles, SearchProfile, SearchResults as SearchResultsType } from '../src/components/types/share.type'
 
 class ShareUrlStore {
   searchInput: string = ''
@@ -10,7 +10,8 @@ class ShareUrlStore {
   hasSelectedOnSearch: boolean = false
   indexOfSelectedProfileOnSearch: number = 1
   accessTypeSelectedOnSearch: string = 'Full access'
-  profileInvitedOnSearch: SearchProfile = { name: '', logoUrl: '', email: '' }
+  bookmarkedProfiles: BookmarkedProfiles[] = [{ ...bookmarked?.profileInfo, accessType: 'Full access' }]
+  profileInvitedOnSearch: BookmarkedProfiles[] = []
   constructor () {
     makeAutoObservable(this)
   }
@@ -42,14 +43,15 @@ class ShareUrlStore {
         }
       } else {
         const indexOfProfile: number = this.indexOfSelectedProfileOnSearch - 1
-        const checkProfile = this.searchResults?.entity?.group ?? []
+        const checkProfile = this.searchResults?.entity?.person ?? []
         if (checkProfile?.[indexOfProfile]) {
           profile = checkProfile?.[indexOfProfile]
         }
       }
+
       runInAction(() => {
-        this?.toggleHasSelectedOnSearch()
-        this.updateProfileInvitedOnSearch(profile)
+        this.toggleHasSelectedOnSearch()
+        this.addProfileInvitedOnSearch(profile)
       })
     }
   }
@@ -86,9 +88,35 @@ class ShareUrlStore {
     })
   }
 
-  updateProfileInvitedOnSearch (profile: SearchProfile): void {
+  addProfileInvitedOnSearch (profile: SearchProfile): void {
     runInAction(() => {
-      this.profileInvitedOnSearch = profile
+      const profileWithAccess = [{
+        ...profile,
+        accessType: this.accessTypeSelectedOnSearch
+      }]
+      const profiles = this.profileInvitedOnSearch?.filter((profil) => profil?.name !== profile?.name)
+      this.profileInvitedOnSearch = [...profiles, ...profileWithAccess]
+      this.resetSearchInput()
+    })
+  }
+
+  removeProfileInvitedOnSearch (profile: SearchProfile): void {
+    runInAction(() => {
+      const profiles = this.profileInvitedOnSearch?.filter((profil) => profil?.name !== profile?.name)
+      this.profileInvitedOnSearch = [...profiles]
+    })
+  }
+
+  updateBookmarkedProfiles (): void {
+    runInAction(() => {
+      this.bookmarkedProfiles = [...this.bookmarkedProfiles, ...this.profileInvitedOnSearch]
+      this.toggleClickedOnSearch()
+    })
+  }
+
+  resetSearchInput (): void {
+    runInAction(() => {
+      this.searchInput = ''
     })
   }
 }

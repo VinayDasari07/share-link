@@ -7,6 +7,7 @@ export default function InputField (props: InputFieldType): React.ReactElement {
   return (
     <Box sx={{ width: '100%' }}>
         <InputBase
+            value={props?.value ?? ''}
             onKeyPress={props?.handleOnKeyPress}
             sx={{ ml: 1, flex: 1, width: '100%' }}
             placeholder={props?.placeholder}

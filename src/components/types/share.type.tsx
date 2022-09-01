@@ -1,4 +1,3 @@
-import { TypographyVariant } from '@mui/material'
 
 export interface Header {
   logoUrl: string
@@ -7,6 +6,7 @@ export interface Header {
 }
 
 export interface InputField {
+  value: string
   placeholder: string
   autoFocus?: boolean
   onChange?: (event: any) => void
@@ -37,7 +37,7 @@ export interface Modal1 {
   inputField: SearchInput
   footer: Footer
 }
-export type ProfileInfoVariant = 'small' | 'medium'
+export type ProfileInfoVariant = 'small' | 'medium' | string
 export interface ProfileInfo {
   variant?: ProfileInfoVariant
   logoUrl: string
@@ -45,12 +45,13 @@ export interface ProfileInfo {
   description?: string
 }
 
+export interface ProfileInfoProps {
+  logoUrl: string
+  name: string
+  description?: string
+}
 export interface Bookmarked {
-  profileInfo?: ProfileInfo
-  dropdown: {
-    options: string[]
-    textVariant: TypographyVariant
-  }
+  profileInfo: ProfileInfo
 }
 
 export interface SearchWindowHeader {
@@ -73,6 +74,13 @@ export interface SearchProfile {
   name: string
   logoUrl: string
   email?: string
+}
+
+export interface BookmarkedProfiles {
+  name: string
+  logoUrl: string
+  email?: string
+  accessType: string
 }
 
 export interface Entities {

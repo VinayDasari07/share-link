@@ -11,28 +11,31 @@ const Pill = (props: PropTypes): React.ReactElement => {
   return (
         <Box
             sx={{
-              width: '105px',
+              width: 'max-content',
               height: '28px',
               display: 'flex',
               justifyContent: 'space-around',
               background: '#E5E7EB'
+
             }}
         >
             <Box
                 sx={{
                   display: 'flex',
                   justifyContent: 'space-between',
-                  alignItems: 'center'
+                  alignItems: 'center',
+                  p: 0.5
                 }}
             >
                 <Typography variant='body1'>
-                    Tom Cook
+                    {props?.name}
                 </Typography>
             </Box>
             <Box
                 sx={{
                   display: 'flex',
                   justifyContent: 'center',
+                  p: 0.5,
                   '&:hover': {
                     cursor: 'pointer'
                   }

@@ -33,16 +33,17 @@ export const bookmarked = {
     logoUrl: '/oSlashLogo.svg',
     name: 'Everyone at OSlash',
     description: '25 workspace members'
-  },
-  dropdown: {
-    textVariant: 'caption',
-    options: [
-      'Full access',
-      'Can edit',
-      'Can view',
-      'No access'
-    ]
   }
+}
+
+export const dropDown = {
+  textVariant: 'caption',
+  options: [
+    'Full access',
+    'Can edit',
+    'Can view',
+    'No access'
+  ]
 }
 
 export const searchWindowHeader = {
@@ -80,7 +81,7 @@ export const searchResults = {
       {
         name: 'Wade Cooper',
         logoUrl: '/avatar.png',
-        email: 'wade.cooper@oslash.com'
+        email: 'wade.cooper@company.com'
       },
       {
         name: 'Arlene Mccoy',
@@ -90,7 +91,7 @@ export const searchResults = {
       {
         name: 'Tom cook',
         logoUrl: '/avatar.png',
-        email: 'tom.cook@oslash.com'
+        email: 'tom.cook@company.com'
       },
       {
         name: 'John E. Bowers',
@@ -100,54 +101,59 @@ export const searchResults = {
       {
         name: 'Glenn L. Harjo',
         logoUrl: '/avatar.png',
-        email: 'glenn.harjo@oslash.com'
+        email: 'glenn.harjo@company.com'
       },
       {
         name: 'Jennifer C. Beaty',
         logoUrl: '/avatar.png',
-        email: 'jennifer.beaty@oslash.com'
+        email: 'jennifer.beaty@company.com'
       },
       {
         name: 'Toni B. Lacoste',
         logoUrl: '/avatar.png',
-        email: 'toni.lacoste@oslash.com'
+        email: 'toni.lacoste@company.com'
       },
       {
         name: 'Vernon K. Ward',
         logoUrl: '/avatar.png',
-        email: 'vernon.ward@oslash.com'
+        email: 'vernon.ward@company.com'
       },
       {
         name: 'Michael B. Self',
         logoUrl: '/avatar.png',
-        email: 'michael.self@oslash.com'
+        email: 'michael.self@company.com'
       },
       {
         name: 'Patrick S. Shreve',
         logoUrl: '/avatar.png',
-        email: 'patrick.shreve@oslash.com'
+        email: 'patrick.shreve@company.com'
       }
     ],
     group: [
       {
         name: 'Product',
-        logoUrl: '/avatar.png'
+        logoUrl: '/avatar.png',
+        email: 'product@company.com'
       },
       {
         name: 'Engineering',
-        logoUrl: '/avatar.png'
+        logoUrl: '/avatar.png',
+        email: 'engineering@company.com'
       },
       {
         name: 'Human Resource',
-        logoUrl: '/avatar.png'
+        logoUrl: '/avatar.png',
+        email: 'human.resource@company.com'
       },
       {
         name: 'Infrastructure',
-        logoUrl: '/avatar.png'
+        logoUrl: '/avatar.png',
+        email: 'infrastructure@company.com'
       },
       {
         name: 'Supply Chain',
-        logoUrl: '/avatar.png'
+        logoUrl: '/avatar.png',
+        email: 'supply.chain@company.com'
       }
 
     ]

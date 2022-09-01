@@ -2,7 +2,7 @@ import { Box, styled } from '@mui/material'
 import { observer } from 'mobx-react'
 import { ProfileInfo } from './common/profile.component'
 import { store } from '../../store/ShareUrlStore'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 
 interface ProfileContProps {
   index: number
@@ -18,14 +18,23 @@ const ProfileCont = styled(Box)<ProfileContProps>`
 const SearchResults = (): React.ReactElement => {
   const searchResultsEntity = store?.searchResults?.entity ?? {}
   const [hoveredIndex, setHoveredIndex] = useState<number>(1)
+
+  useEffect(() => {
+    if (store?.searchInput !== '' &&
+        (searchResultsEntity?.person?.length) === 0 &&
+        (searchResultsEntity?.group?.length) !== 0) {
+      setHoveredIndex(101)
+      store?.updateIndexOfSelectedProfileOnSearch(101)
+    }
+  }, [searchResultsEntity?.person?.length, searchResultsEntity?.group?.length])
+
   const handleOnMouseEnter = (index: number): void => {
     console.log('testing------handleOnMouseEnter', index)
     setHoveredIndex(index)
     store?.updateIndexOfSelectedProfileOnSearch(index)
   }
-  // const handleOnMouseLeave = (index: number): void => {
-  //   setHoveredIndex(index)
-  // }
+
+  console.log('testing------hoveredIndex', hoveredIndex)
   return (
         <Box sx={{
           p: 2
@@ -52,7 +61,6 @@ const SearchResults = (): React.ReactElement => {
                       hasSearchedInput={Boolean(store?.searchInput)}
                       onMouseEnter={() => handleOnMouseEnter(index)}
                       onClick={() => store?.getProfileFromInputOnSearch()}
-                      // onMouseLeave={() => handleOnMouseLeave(index)}
                     >
                       <ProfileInfo
                           {...person}
@@ -80,7 +88,7 @@ const SearchResults = (): React.ReactElement => {
                   hoveredIndex={hoveredIndex}
                   hasSearchedInput={Boolean(store?.searchInput)}
                   onMouseEnter={() => handleOnMouseEnter(index)}
-                  // onMouseLeave={() => handleOnMouseLeave(index)}
+                  onClick={() => store?.getProfileFromInputOnSearch()}
                 >
                   <ProfileInfo
                       key={index}
