@@ -9,7 +9,7 @@ import { TypographyVariant } from '@mui/material'
 
 interface Props {
   options: string[]
-  size?: 'small' | 'medium'
+  size: 'small' | 'medium'
   textVariant?: TypographyVariant
   style?: TypographyProps
   getSelectedEvent: (event: SelectChangeEvent) => void

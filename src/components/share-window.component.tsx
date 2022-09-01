@@ -7,7 +7,7 @@ import { Modal1 } from './types/share.type'
 import { store } from '../../store/ShareUrlStore'
 import { observer } from 'mobx-react'
 
-const ShareModal = (props: Modal1): React.ReactElement => {
+const ShareWindow = (props: Modal1): React.ReactElement => {
   const theme = useTheme()
   const searchInputProps = {
     ...props?.inputField,
@@ -46,4 +46,4 @@ const ShareModal = (props: Modal1): React.ReactElement => {
   )
 }
 
-export default observer(ShareModal)
+export default observer(ShareWindow)

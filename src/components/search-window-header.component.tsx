@@ -42,115 +42,89 @@ const SearchWindowHeader = (props: SearchWindowHeaderType): React.ReactElement =
       height: hasSelectedOnSearch ? '' : 58,
       background: '#F3F4F6'
     }}>
+      <Box
+        sx={{
+          p: '8px 16px',
+          width: '100%',
+          display: 'flex',
+          alignItems: 'center'
+        }}
+      >
         <Box
-            sx={{
-              p: '8px 16px',
-              width: '100%',
-              display: 'flex',
-              alignItems: 'center'
-            }}
+          sx={{
+            width: hasSelectedOnSearch ? '100%' : ''
+          }}
         >
+          {(hasSelectedOnSearch) && (
             <Box
               sx={{
-                width: hasSelectedOnSearch ? '100%' : ''
-              }}
-            >
-              {(hasSelectedOnSearch) && (
-                <Box
-                  sx={{
-                    width: '100%',
-                    display: 'flex',
-                    flexDirection: 'row',
-                    flexWrap: 'wrap'
-                  }}
-                >
-                  {
-                    store?.profileInvitedOnSearch?.map((profile) => {
-                      return (
-                        <Box
-                          key={profile?.name}
-                          sx={{
-                            p: 0.5
-                          }}
-                        >
-                          <Pill
-                            name={profile?.name}
-                            handleClick={() => removePill(profile)}
-                          />
-                        </Box>
-
-                      )
-                    })
-                  }
-                  <InputField
-                    value={store?.searchInput}
-                    autoFocus={true}
-                    placeholder={props?.inputField?.placeholder}
-                    handleOnKeyPress={handleOnKeyPress}
-                    onChange={handleChange}
-                  />
-                </Box>
-              )}
-            </Box>
-            <Box
-              sx={{
-                width: hasSelectedOnSearch ? '' : '100%'
-              }}
-            >
-              {(!hasSelectedOnSearch) && (
-                  <InputField
-                    value={store?.searchInput}
-                    autoFocus={true}
-                    placeholder={props?.inputField?.placeholder}
-                    handleOnKeyPress={handleOnKeyPress}
-                    onChange={handleChange}
-                  />
-              )}
-            </Box>
-            <Box
-              sx={{
+                width: '100%',
                 display: 'flex',
-                flexDirection: 'row'
+                flexDirection: 'row',
+                flexWrap: 'wrap'
               }}
             >
-              <Box
-                sx={{
-                  display: 'flex',
-                  height: 40
-                }}
-              >
-                <SelectOptions
-                  size='small'
-                  options={props?.dropdown?.options}
-                  getSelectedEvent={handleDropdownChange}
-                  initialValue={store?.accessTypeSelectedOnSearch}
-                />
-              </Box>
-              <Box
-                sx={{
-                  display: 'flex',
-                  justifyContent: 'center',
-                  alignItems: 'center'
-                }}
-              >
-                <Button
-                  onClick={handleInviteClick}
-                  sx={{
-                    height: '34px',
-                    ml: 1.5,
-                    background: '#FFFFFF',
-                    transition: 'background 20ms ease-in 0s',
-                    '&:hover': {
-                      background: 'rgba(55,53,47,0.08)',
-                      cursor: hasSelectedOnSearch ? 'pointer' : 'not-allowed'
-                    }
-                  }}
-                >
-                    <Typography>{props?.button}</Typography>
-                </Button>
-              </Box>
+              {store?.profileInvitedOnSearch?.map((profile) => {
+                return (
+                      <Box
+                        key={profile?.name} sx={{ p: 0.5 }}
+                      >
+                        <Pill
+                          name={profile?.name}
+                          handleClick={() => removePill(profile)}
+                        />
+                      </Box>
+                )
+              })}
+              <InputField
+                value={store?.searchInput}
+                autoFocus={true}
+                placeholder={props?.inputField?.placeholder}
+                handleOnKeyPress={handleOnKeyPress}
+                onChange={handleChange}
+              />
             </Box>
+          )}
         </Box>
+        <Box sx={{ width: hasSelectedOnSearch ? '' : '100%' }}>
+          {(!hasSelectedOnSearch) && (
+              <InputField
+                value={store?.searchInput}
+                autoFocus={true}
+                placeholder={props?.inputField?.placeholder}
+                handleOnKeyPress={handleOnKeyPress}
+                onChange={handleChange}
+              />
+          )}
+        </Box>
+        <Box sx={{ display: 'flex' }}>
+          <Box sx={{ display: 'flex', height: 40 }}>
+            <SelectOptions
+              size='small'
+              options={props?.dropdown?.options}
+              getSelectedEvent={handleDropdownChange}
+              initialValue={store?.accessTypeSelectedOnSearch}
+            />
+          </Box>
+          <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+            <Button
+              onClick={handleInviteClick}
+              sx={{
+                height: '34px',
+                ml: 1.5,
+                background: '#FFFFFF',
+                transition: 'background 20ms ease-in 0s',
+                '&:hover': {
+                  background: 'rgba(55,53,47,0.08)',
+                  cursor: hasSelectedOnSearch ? 'pointer' : 'not-allowed'
+                }
+              }}
+            >
+                <Typography>{props?.button}</Typography>
+            </Button>
+          </Box>
+        </Box>
+      </Box>
     </Box>
 
   )

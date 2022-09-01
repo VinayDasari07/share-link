@@ -6,7 +6,7 @@ export interface Header {
 }
 
 export interface InputField {
-  value: string
+  value?: string
   placeholder: string
   autoFocus?: boolean
   onChange?: (event: any) => void
@@ -54,11 +54,11 @@ export interface Bookmarked {
   profileInfo: ProfileInfo
 }
 
+export type size = 'medium' | 'small'
 export interface SearchWindowHeader {
   inputField: InputField
   dropdown: {
     options: string[]
-    size: 'medium' | 'small'
   }
   button: string
 }

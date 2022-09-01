@@ -23,6 +23,10 @@ const BookmarkedProfiles = (): React.ReactElement => {
     }
     return profileProps
   }
+
+  const handleSelectedOption = (): void => {
+
+  }
   return (
         <Box
           sx={{
@@ -43,9 +47,10 @@ const BookmarkedProfiles = (): React.ReactElement => {
               >
                 <ProfileInfo {...profileProps}/>
                 <AccessTypeMenu
-                  textVariant={dropDown?.textVariant}
+                  textVariant='caption'
                   options={dropDown?.options}
-                  // getSelectedEvent={}
+                  size='small'
+                  getSelectedEvent={handleSelectedOption}
                   initialValue={profile?.accessType}
                 />
               </Box>

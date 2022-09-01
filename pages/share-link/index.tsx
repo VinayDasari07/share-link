@@ -1,38 +1,51 @@
-import { Box } from '@mui/material'
-import { Fragment } from 'react'
-import ShareBtn from '../../src/components/share-btn.component'
+import { Box, Button } from '@mui/material'
 import { share, searchWindow } from '../../content'
-import SearchEntities from '../../src/components/search-entities.component'
+import SearchWindow from '../../src/components/search-window.component'
 import { store } from '../../store/ShareUrlStore'
 import { observer } from 'mobx-react'
+import ShareWindow from '../../src/components/share-window.component'
+import ShareIcon from '@mui/icons-material/Share'
 
 const ShareLink = (): React.ReactElement => {
+  const toggleModal = (): void => {
+    store?.toggleShowShareWindow()
+  }
   return (
-        <Fragment>
-            <Box
-                sx={{
-                  position: 'absolute',
-                  margin: 'auto',
-                  width: 800,
-                  height: 600
-                }}
-            >
-                {!store?.clickedOnSearch && <ShareBtn {...share}/>}
-                <Box sx={{ height: 20 }}></Box>
-                {store?.clickedOnSearch && (
-                  <Box
-                    sx={{
-                      position: 'relative',
-                      top: '30%',
-                      left: '25%'
-                    }}
+        <Box
+          sx={{
+            margin: 'auto',
+            width: 800,
+            height: 600,
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center'
+          }}
+        >
+          <Box>
+            <Box>
+              {!store?.clickedOnSearch && (
+                <Box>
+                  <Button
+                      variant='contained'
+                      onClick={toggleModal}
+                      endIcon={<ShareIcon />}
                   >
-                  <SearchEntities {...searchWindow}/>
-                  </Box>
-                )}
+                      {share?.shareBtn}
+                  </Button>
+                  {store?.showShareWindow && (
+                      <ShareWindow {...share?.modal1}/>
+                  )}
+                </Box>
+              )}
             </Box>
-
-        </Fragment>
+            <Box sx={{ height: 20 }}></Box>
+            {store?.clickedOnSearch && (
+              <Box>
+              <SearchWindow {...searchWindow}/>
+              </Box>
+            )}
+          </Box>
+        </Box>
   )
 }
 
