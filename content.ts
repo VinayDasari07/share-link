@@ -30,8 +30,8 @@ export const share = {
 export const bookmarked = {
   profileInfo: {
     variant: 'medium',
-    logoUrl: '/oSlashLogo.svg',
-    name: 'Everyone at OSlash',
+    logoUrl: '/globeIcon.svg',
+    name: 'Everyone at Company',
     description: '25 workspace members'
   }
 }
